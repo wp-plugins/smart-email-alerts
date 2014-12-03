@@ -1,9 +1,9 @@
 === Smart Email Alerts ===
 Contributors: eric.hauch,mircea.preotu
 Tags: Followistic, followistic, alert, email alert, email alerts, follow, follow button, subscribe, plugin, email marketing, email, newsletter, email newsletter, topics, tags, subscribers, notifications, author, category, categories
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Requires at least: 3.1
+Tested up to: 4.0.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ Enable your readers to subscribe to custom email alerts for all the topics, auth
 
 == Description ==
 
-**Make your readers return - with Smart Email Alerts by Followistic.**
+**Make your readers return - with Smart Email Alerts by [Followistic](http://www.followistic.com/).**
 
 After installing the plugin your readers will find a nifty, fully customizable widget below your posts. It displays all the topics, the author and the categories of the respective post and allows your readers to select and subscribe via email to what they are most interested in on your site.
 
@@ -81,11 +81,11 @@ Totally! You can customize the widget to match the look'n'feel of your site perf
 
 = Can I use it on multiple domains? =
 
-Sure, the only thing you have to do then is setup a different account for each domain. You'll get a separate API key for each domain then.
+Sure, the only thing you have to do is setup a different account for each domain. You'll get a separate API key for each domain then.
 
 = I have an idea for a feature, could you please add that? =
 
-We'd love it hear your thoughts on additional features and improvements. You can reach us anytime at [hello@followistic.com](mailto:hello@followistic.com).
+We'd love to hear your thoughts on additional features and improvements. You can reach us anytime at [hello@followistic.com](mailto:hello@followistic.com).
 
 
 == Screenshots ==
@@ -97,7 +97,14 @@ We'd love it hear your thoughts on additional features and improvements. You can
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+
+* Added plugin icons
+* Fix typo in readme.txt
+* Fix min wp compatibility
+
+= 1.0.0 =
+
 * First version
 
 

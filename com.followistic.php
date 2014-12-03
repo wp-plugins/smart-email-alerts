@@ -5,7 +5,7 @@
  *
  * Plugin Name: Followistic
  * Description: WordPress plugin for Followistic alerts service.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Followistic
  * Author URI: http://followistic.com/
  * License: GPL v3
@@ -21,8 +21,8 @@ if (WP_DEBUG === TRUE) {
   error_log("[FOLLOWISTIC] Plugin is installed.");
 }
 
-define('FOLLOWISTIC_VERSION', '1.0');
-define('FOLLOWISTIC_MINIMUM_WP_VERSION', '3.0.1');
+define('FOLLOWISTIC_VERSION', '1.0.1');
+define('FOLLOWISTIC_MINIMUM_WP_VERSION', '3.1');
 define('FOLLOWISTIC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('FOLLOWISTIC_PLUGIN_BASE_DIR', plugin_dir_path(__FILE__));
 define('FOLLOWISTIC_PLUGIN_LIB_DIR', FOLLOWISTIC_PLUGIN_BASE_DIR . 'lib/');
