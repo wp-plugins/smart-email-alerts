@@ -45,11 +45,12 @@ EOT;
     }
 
     // image
-    $image = get_the_post_thumbnail($post->ID);
-    if (!empty($image)) {
+    if (has_post_thumbnail($post->ID)) {
+      $image_resource = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID));
+      $image_url      = $image_resource[0];
       $content .= <<<EOT
 
-      followistic('image', '{$image}');
+      followistic('image', '{$image_url}');
 EOT;
     }
 

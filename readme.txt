@@ -3,7 +3,7 @@ Contributors: eric.hauch,mircea.preotu
 Tags: Followistic, followistic, alert, email alert, email alerts, follow, follow button, subscribe, plugin, email marketing, email, newsletter, email newsletter, topics, tags, subscribers, notifications, author, category, categories
 Requires at least: 3.1
 Tested up to: 4.0.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ We'd love to hear your thoughts on additional features and improvements. You can
 4. Settings are simple and straightforward
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Fixed image url issue
 
 = 1.0.1 =
 
