@@ -2,7 +2,7 @@
 Contributors: eric.hauch,mircea.preotu
 Tags: alert, alerts, amazon, auto newsletter, autoresponder, aweber, campaign, drip, emailing, follow up, mailchimp, mailpoet, mandrill, newsletters, notification, subscription, signup, wysija, sendgrid, subscribe2, author, categories, category, email, Email Alert, email alerts, email marketing, email newsletter, follow, follow button, Followistic, newsletter, notifications, plugin, subscribe, subscribers, tags, topics
 Requires at least: 3.1
-Tested up to: 4.0.1
+Tested up to: 4.1
 Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
