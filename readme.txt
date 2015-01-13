@@ -3,7 +3,7 @@ Contributors: eric.hauch,mircea.preotu
 Tags: alert, alerts, amazon, auto newsletter, autoresponder, aweber, campaign, drip, emailing, follow up, mailchimp, mailpoet, mandrill, newsletters, notification, subscription, signup, wysija, sendgrid, subscribe2, author, categories, category, email, Email Alert, email alerts, email marketing, email newsletter, follow, follow button, Followistic, newsletter, notifications, plugin, subscribe, subscribers, tags, topics
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,11 @@ We'd love to hear your thoughts on additional features and improvements. You can
 4. Settings are simple and straightforward
 
 == Changelog ==
+
+= 1.0.6 =
+*Release Date - 13th January, 2015*
+
+* Updated wp compatibility
 
 = 1.0.5 =
 *Release Date - 13th January, 2015*
