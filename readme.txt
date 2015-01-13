@@ -1,6 +1,6 @@
 === Smart Email Alerts ===
 Contributors: eric.hauch,mircea.preotu
-Tags: Followistic, followistic, alert, email alert, email alerts, follow, follow button, subscribe, plugin, email marketing, email, newsletter, email newsletter, topics, tags, subscribers, notifications, author, category, categories
+Tags: alert, alerts, amazon, auto newsletter, autoresponder, aweber, campaign, drip, emailing, follow up, mailchimp, mailpoet, mandrill, newsletters, notification, subscription, signup, wysija, sendgrid, subscribe2, author, categories, category, email, Email Alert, email alerts, email marketing, email newsletter, follow, follow button, Followistic, newsletter, notifications, plugin, subscribe, subscribers, tags, topics
 Requires at least: 3.1
 Tested up to: 4.0.1
 Stable tag: 1.0.2
@@ -59,7 +59,7 @@ Both the widget and the email notifications are fully customizable, so they'll m
 
 = What happens with the email addresses? =
 
-All visitors subscribing to topics, authors or categories of your site will be confirmed via double opt-in. You will be able to access the email addresses collected (feature currently under development) and they are only used by us to send notifications to your subscribers when you publish a new relevant post. 
+All visitors subscribing to topics, authors or categories of your site will be confirmed via double opt-in. You will be able to access the email addresses collected (feature currently under development) and they are only used by us to send notifications to your subscribers when you publish a new relevant post.
 
 = Why do I need to register? =
 
@@ -97,19 +97,28 @@ We'd love to hear your thoughts on additional features and improvements. You can
 
 == Changelog ==
 
+= 1.0.3 =
+*Release Date - 13th January, 2015*
+
+* Fixed html characters in tags, author and title
+
 = 1.0.2 =
+*Release Date - 22nd December, 2014*
 
 * Fixed image url issue
 
 = 1.0.1 =
+*Release Date - 3rd December, 2014*
 
 * Added plugin icons
 * Fix typo in readme.txt
 * Fix min wp compatibility
 
 = 1.0.0 =
+*Release Date - 1st December, 2014*
 
 * First version
 
 
 == Upgrade Notice ==
+

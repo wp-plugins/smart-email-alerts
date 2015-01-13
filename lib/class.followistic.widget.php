@@ -20,7 +20,7 @@ class FollowisticWidget
 
     $account   = Followistic::getInstance()->get_api_key();
     $guid      = $post->ID;
-    $title     = addslashes(get_the_title());
+    $title     = self::encode(get_the_title());
     $published = get_the_date('c');
     $content   = <<<EOT
     <div id="followistic-root"></div>
@@ -44,19 +44,27 @@ EOT;
 EOT;
     }
 
-    // image
-    if (has_post_thumbnail($post->ID)) {
-      $image_resource = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID));
-      $image_url      = $image_resource[0];
-      $content .= <<<EOT
+
+    // IMAGE
+    try {
+      if (has_post_thumbnail($post->ID)) {
+        $image_resource = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID));
+        preg_match('@src="([^"]+)"@', $image_resource[0], $match);
+
+        $image_url = empty($match) ? $image_resource[0] : $match[1];
+        $content .= <<<EOT
 
       followistic('image', '{$image_url}');
 EOT;
+      }
+    } catch (Exception $e) {
     }
 
-    // author
+
+    // AUTHOR
     try {
-      $author = addslashes(get_userdata($post->post_author)->user_nicename);
+      $author = self::encode(get_userdata($post->post_author)->user_nicename);
+
       if (!empty($author)) {
         $content .= <<<EOT
 
@@ -66,12 +74,12 @@ EOT;
     } catch (Exception $e) {
     }
 
-    // categories
-    $cagegories = get_the_category();
-    if (!empty($cagegories)) {
+    // CATEGORIES
+    $categories = get_the_category();
+    if (!empty($categories)) {
       $list = array();
-      foreach ($cagegories as $cagegory) {
-        $list[] = "'" . addslashes($cagegory->name) . "'";
+      foreach ($categories as $category) {
+        $list[] = "'" . self::encode($category->name) . "'";
       }
 
       $list = implode(', ', $list);
@@ -81,12 +89,12 @@ EOT;
 EOT;
     }
 
-    // keywords
+    // KEYWORDS
     $keywords = wp_get_post_tags($post->ID);
     if (!empty($keywords)) {
       $list = array();
       foreach ($keywords as $keyword) {
-        $list[] = "'" . addslashes($keyword->name) . "'";
+        $list[] = "'" . self::encode($keyword->name) . "'";
       }
 
       $list = implode(', ', $list);
@@ -96,7 +104,7 @@ EOT;
 EOT;
     }
 
-    // preview mode
+    // PREVIEW MODE?
     $is_preview = $post->post_status != 'publish';
     if ($is_preview) {
       $content .= <<<EOT
@@ -111,5 +119,10 @@ EOT;
 EOT;
 
     return $content;
+  }
+
+  private static function encode($string)
+  {
+    return addslashes(html_entity_decode($string, ENT_QUOTES, 'UTF-8'));
   }
 }
