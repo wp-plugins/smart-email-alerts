@@ -20,7 +20,7 @@ if (WP_DEBUG === TRUE) {
   error_log("[FOLLOWISTIC] Plugin is installed.");
 }
 
-define('FOLLOWISTIC_VERSION', '1.0.3');
+define('FOLLOWISTIC_VERSION', '1.0.4');
 define('FOLLOWISTIC_MINIMUM_WP_VERSION', '3.1');
 define('FOLLOWISTIC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('FOLLOWISTIC_PLUGIN_BASE_DIR', plugin_dir_path(__FILE__));
