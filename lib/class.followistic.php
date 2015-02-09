@@ -16,6 +16,9 @@ class Followistic
    */
   private static $_instance = NULL;
 
+  const DEFAULT_PLACEMENT = 'after_content';
+  const DEFAULT_MARGIN    = 20;
+
   public static function init()
   {
     if (!self::$_instance) {
@@ -31,6 +34,10 @@ class Followistic
 
         case 'update_placement':
           self::getInstance()->update_widget_placement();
+          break;
+
+        case 'update_margins':
+          self::getInstance()->update_widget_margins();
           break;
 
         default:
@@ -75,7 +82,26 @@ class Followistic
 
   public function get_widget_placement()
   {
-    return apply_filters('followistic_get_widget_placement', get_option('followistic_widget_placement'));
+    $db_setting = apply_filters('followistic_get_widget_placement', get_option('followistic_widget_placement'));
+    $placement  = $db_setting ? $db_setting : self::DEFAULT_PLACEMENT;
+
+    return $placement;
+  }
+
+  public function has_margins()
+  {
+    return ($this->get_widget_placement() == 'after_content');
+  }
+
+  public function get_widget_margins()
+  {
+    $margin_top = apply_filters('followistic_get_widget_margins', get_option('followistic_widget_margin_top'));
+    $margin_top = $margin_top ? $margin_top : self::DEFAULT_MARGIN;
+
+    $margin_bottom = apply_filters('followistic_get_widget_margins', get_option('followistic_widget_margin_bottom'));
+    $margin_bottom = $margin_bottom ? $margin_bottom : self::DEFAULT_MARGIN;
+
+    return array('top' => $margin_top, 'bottom' => $margin_bottom);
   }
 
   public static function activate()
@@ -91,7 +117,7 @@ class Followistic
    */
   public static function deactivate()
   {
-    $option_keys = array('followistic_api_key', 'followistic_widget_placement');
+    $option_keys = array('followistic_api_key', 'followistic_widget_placement', 'followistic_widget_margin_top', 'followistic_widget_margin_bottom');
     foreach ($option_keys as $option_key) {
       delete_option($option_key);
     }
@@ -108,6 +134,16 @@ class Followistic
     );
 
     return $widget_placement_options;
+  }
+
+  public function get_widget_margin_options()
+  {
+    $widget_margin_options = array(
+      'top'    => __('Top margin:', 'followistic'),
+      'bottom' => __('Bottom margin:', 'followistic')
+    );
+
+    return $widget_margin_options;
   }
 
   /**
@@ -168,6 +204,35 @@ class Followistic
     update_option('followistic_widget_placement', $placement);
     FollowisticFrontend::set_message('success', __('Your widget placement was updated.', 'followistic'));
 
+    return TRUE;
+  }
+
+  private function update_widget_margins()
+  {
+    if (function_exists('current_user_can') && !current_user_can('manage_options')) {
+      wp_die(__('You do not have sufficient permissions to access this page.'));
+    }
+
+    $positions = $this->get_widget_margin_options();
+    $margins   = $_POST['margins'];
+
+    if (array_keys($margins) != array_keys($positions)) {
+      throw new Exception("Invalid margins key received");
+    }
+
+    foreach ($positions as $key => $label) {
+      if (!isset($margins[$key]) OR empty($margins[$key])) {
+        FollowisticFrontend::set_message('error', __($label . ' missing or empty', 'followistic'));
+        return TRUE;
+      }
+    }
+
+    foreach ($positions as $key => $label) {
+      $value = intval($margins[$key]);
+      update_option("followistic_widget_margin_$key", $value);
+    }
+
+    FollowisticFrontend::set_message('success', __('Margins were updated.', 'followistic'));
     return TRUE;
   }
 

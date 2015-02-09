@@ -3,7 +3,7 @@ Contributors: eric.hauch,mircea.preotu
 Tags: alert, alerts, amazon, auto newsletter, autoresponder, aweber, campaign, drip, emailing, follow up, mailchimp, mailpoet, mandrill, newsletters, notification, subscription, signup, wysija, sendgrid, subscribe2, author, categories, category, email, Email Alert, email alerts, email marketing, email newsletter, follow, follow button, Followistic, newsletter, notifications, plugin, subscribe, subscribers, tags, topics
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ To be able to provide you this level of functionality and service we need some b
 = Is there a limit to the number of subscribers? =
 
 Each email address that has been confirmed via double opt-in by its owner counts as a single subscriber. Followistic is totally free for up to 250 subscribers who can subscribe to as many topics, authors and categories as they like. Also, the number of email notifications is not limited.
-Beyond 250 subscribers we offer fair monthly plans for websites of any size. You can check them our anytime [here](http://followistic.com/pricing).
+Beyond 250 subscribers we offer fair monthly plans for websites of any size. You can check them out anytime [here](http://followistic.com/pricing).
 
 = Does this plugin slow down my website? =
 
@@ -96,6 +96,11 @@ We'd love to hear your thoughts on additional features and improvements. You can
 4. Settings are simple and straightforward
 
 == Changelog ==
+
+= 1.0.7 =
+*Release Date - 3rd February, 2015*
+
+* Bugfixes and improvements (widget margin settings. etc)
 
 = 1.0.6 =
 *Release Date - 13th January, 2015*

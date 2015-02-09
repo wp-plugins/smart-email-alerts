@@ -225,3 +225,26 @@ body {
   top: 46px;
   right: 19px;
 }
+
+#followistic-admin section > form.settings-margins {
+    margin-top:20px;
+}
+
+#followistic-admin section > form.settings-margins input {
+    width: 60px;
+}
+
+#followistic-admin section > form.settings-margins label {
+  font-weight: normal;
+  margin-left: 40px;
+}
+
+#followistic-admin section > form.settings-margins label[for="margins"] {
+  font-weight: bold;
+    margin-right: 89px;
+    margin-left:0px;
+}
+
+#followistic-admin section > form.settings-margins input[type="submit"] {
+    margin-left: 41px;
+}

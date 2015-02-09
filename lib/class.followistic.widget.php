@@ -23,8 +23,8 @@ class FollowisticWidget
     $title     = self::encode(get_the_title());
     $published = get_the_date('c');
     $content   = <<<EOT
-    <div id="followistic-root"></div>
-    <script type="text/javascript">
+<div id="followistic-root"></div>
+<script type="text/javascript">
 (function(m,u,s,i,c,a,l){m['FollowisticObject']=c;m[c]=m[c]||function(){(m[c].p=m[c].p||[]).push(arguments)},
 a=u.createElement(s),l=u.getElementsByTagName(s)[0];a.async=1;a.src=i;l.parentNode.insertBefore(a,l)})
 (window,document,'script','//static.followistic.com/widget/flw.js','followistic');
@@ -47,11 +47,12 @@ EOT;
 
     // IMAGE
     try {
-      if (has_post_thumbnail($post->ID)) {
-        $image_resource = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID));
-        preg_match('@src="([^"]+)"@', $image_resource[0], $match);
+      // featured image
+      $featured_image_url   = self::featured_image_url_for($post->ID);
+      $attachment_image_url = self::attachment_image_url_for($post->ID);
+      $image_url            = empty($featured_image_url) ? $attachment_image_url : $featured_image_url;
 
-        $image_url = empty($match) ? $image_resource[0] : $match[1];
+      if (!empty($image_url)) {
         $content .= <<<EOT
 
       followistic('image', '{$image_url}');
@@ -63,12 +64,12 @@ EOT;
 
     // AUTHOR
     try {
-      $author = self::encode(get_userdata($post->post_author)->user_nicename);
+      $author = self::encode(get_userdata($post->post_author)->display_name);
 
       if (!empty($author)) {
         $content .= <<<EOT
 
-      followistic('tag', '{$author}', 'author');
+      followistic('tag', 'author', '{$author}');
 EOT;
       }
     } catch (Exception $e) {
@@ -85,7 +86,7 @@ EOT;
       $list = implode(', ', $list);
       $content .= <<<EOT
 
-      followistic('tag', [{$list}], 'category');
+      followistic('tag', 'category', [{$list}]);
 EOT;
     }
 
@@ -100,7 +101,7 @@ EOT;
       $list = implode(', ', $list);
       $content .= <<<EOT
 
-      followistic('tag', [{$list}], 'keyword');
+      followistic('tag', 'keyword', [{$list}]);
 EOT;
     }
 
@@ -114,9 +115,23 @@ EOT;
     }
 
     $content .= <<<EOT
-
-    </script>
+</script>
 EOT;
+
+    // MARGINS?
+    if (Followistic::getInstance()->has_margins()) {
+      $margins          = Followistic::getInstance()->get_widget_margins();
+      $around_div_style = [];
+
+      foreach ($margins as $placement => $value) {
+        if ($value == 0) continue;
+
+        $around_div_style[] = "margin-$placement:{$value}px";
+      }
+
+      $around_div_style = implode($around_div_style, ';');
+      $content          = '<div class="followistic-alerts" style="' . $around_div_style . '">' . $content . '</div>';
+    }
 
     return $content;
   }
@@ -124,5 +139,51 @@ EOT;
   private static function encode($string)
   {
     return addslashes(html_entity_decode($string, ENT_QUOTES, 'UTF-8'));
+  }
+
+  private static function featured_image_url_for($post_id)
+  {
+    if (has_post_thumbnail($post_id) == FALSE) {
+      return '';
+    }
+
+    $image_id       = get_post_thumbnail_id($post_id);
+    $image_resource = wp_get_attachment_image_src($image_id, 'full');
+    $image_url      = self::extract_image_from_resource($image_resource);
+
+    return $image_url;
+  }
+
+  private static function attachment_image_url_for($post_id)
+  {
+    $args = array(
+      'numberposts'    => 1,
+      'order'          => 'ASC',
+      'post_mime_type' => 'image',
+      'post_parent'    => $post_id,
+      'post_status'    => NULL,
+      'post_type'      => 'attachment',
+    );
+
+    $image_attachments = get_children($args);
+
+    if (empty($image_attachments)) {
+      return '';
+    }
+
+    $image_attachment = reset($image_attachments);
+    $image_resource   = wp_get_attachment_image_src($image_attachment->ID, 'full');
+    $image_url        = self::extract_image_from_resource($image_resource);
+
+    return $image_url;
+  }
+
+  private function extract_image_from_resource($resource)
+  {
+    preg_match('@src="([^"]+)"@', $resource[0], $match);
+
+    $image_url = empty($match) ? $resource[0] : $match[1];
+
+    return $image_url;
   }
 }

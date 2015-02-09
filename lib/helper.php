@@ -41,3 +41,18 @@ function followistic_widget_placement()
 {
   return Followistic::getInstance()->get_widget_placement();
 }
+
+function followistic_widget_has_margins()
+{
+  return Followistic::getInstance()->has_margins();
+}
+
+function followistic_widget_margin_options()
+{
+  return Followistic::getInstance()->get_widget_margin_options();
+}
+
+function followistic_widget_margins()
+{
+  return Followistic::getInstance()->get_widget_margins();
+}
