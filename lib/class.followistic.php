@@ -90,7 +90,11 @@ class Followistic
 
   public function has_margins()
   {
-    return ($this->get_widget_placement() == 'after_content');
+    if ($this->get_widget_placement() == 'after_content') {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
   }
 
   public function get_widget_margins()
@@ -101,7 +105,12 @@ class Followistic
     $margin_bottom = apply_filters('followistic_get_widget_margins', get_option('followistic_widget_margin_bottom'));
     $margin_bottom = $margin_bottom ? $margin_bottom : self::DEFAULT_MARGIN;
 
-    return array('top' => $margin_top, 'bottom' => $margin_bottom);
+    $margins = array(
+      'top'    => $margin_top,
+      'bottom' => $margin_bottom
+    );
+
+    return $margins;
   }
 
   public static function activate()

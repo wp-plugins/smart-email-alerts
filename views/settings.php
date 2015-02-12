@@ -67,7 +67,7 @@ if (!defined('FOLLOWISTIC_VERSION')) {
     </form>
 
 
-    <?php if (followistic_widget_has_margins()): $margins = followistic_widget_margins(); $options = followistic_widget_margin_options(); ?>
+    <?php $has_margins = followistic_widget_has_margins(); if ($has_margins): $margins = followistic_widget_margins(); $options = followistic_widget_margin_options(); ?>
       <form class="settings-margins" method="POST" class="settings" action="<?php echo followistic_admin_page_url(); ?>">
         <input type="hidden" name="vendor" value="followistic"/>
         <input type="hidden" name="event" value="update_margins"/>

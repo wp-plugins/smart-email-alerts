@@ -119,7 +119,8 @@ EOT;
 EOT;
 
     // MARGINS?
-    if (Followistic::getInstance()->has_margins()) {
+    $has_margins = Followistic::getInstance()->has_margins();
+    if ($has_margins) {
       $margins          = Followistic::getInstance()->get_widget_margins();
       $around_div_style = [];
 
@@ -143,7 +144,8 @@ EOT;
 
   private static function featured_image_url_for($post_id)
   {
-    if (has_post_thumbnail($post_id) == FALSE) {
+    $has_thumbnail = has_post_thumbnail($post_id);
+    if ($has_thumbnail == FALSE) {
       return '';
     }
 
