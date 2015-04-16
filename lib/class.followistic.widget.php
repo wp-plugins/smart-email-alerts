@@ -121,17 +121,16 @@ EOT;
     // MARGINS?
     $has_margins = Followistic::getInstance()->has_margins();
     if ($has_margins) {
-      $margins          = Followistic::getInstance()->get_widget_margins();
-      $around_div_style = [];
+      $margins = Followistic::getInstance()->get_widget_margins();
+      $style   = "";
 
       foreach ($margins as $placement => $value) {
         if ($value == 0) continue;
 
-        $around_div_style[] = "margin-$placement:{$value}px";
+        $style .= "margin-$placement:{$value}px;";
       }
 
-      $around_div_style = implode($around_div_style, ';');
-      $content          = '<div class="followistic-alerts" style="' . $around_div_style . '">' . $content . '</div>';
+      $content = '<div class="followistic-alerts" style="' . $style . '">' . $content . '</div>';
     }
 
     return $content;

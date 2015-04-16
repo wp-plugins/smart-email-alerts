@@ -62,14 +62,14 @@ class FollowisticFrontend
   public static function load_custom_wp_admin_style()
   {
     wp_register_style('followistic', FOLLOWISTIC_PLUGIN_STATIC_URL . 'followistic.css', array('bootstrap'), FOLLOWISTIC_VERSION);
-    wp_register_style('bootstrap', FOLLOWISTIC_PLUGIN_STATIC_URL . 'bootstrap.css', FALSE, FOLLOWISTIC_VERSION);
-
     wp_enqueue_style('followistic');
-    wp_enqueue_style('bootstrap');
   }
 
   public static function settings()
   {
+    wp_register_style('bootstrap', FOLLOWISTIC_PLUGIN_STATIC_URL . 'bootstrap.css', FALSE, FOLLOWISTIC_VERSION);
+    wp_enqueue_style('bootstrap');
+
     self::render('settings');
   }
 
@@ -88,6 +88,9 @@ class FollowisticFrontend
     global $hook_suffix;
 
     if ($hook_suffix == 'plugins.php' && Followistic::getInstance()->has_api_key() === FALSE) {
+      wp_register_style('bootstrap', FOLLOWISTIC_PLUGIN_STATIC_URL . 'bootstrap.css', FALSE, FOLLOWISTIC_VERSION);
+      wp_enqueue_style('bootstrap');
+
       self::render('plugins_notice');
     }
   }
@@ -112,6 +115,7 @@ class FollowisticFrontend
     }
 
     $placement = Followistic::getInstance()->get_widget_placement();
+    $script    = FollowisticWidget::get_script();
 
     switch ($placement) {
       case 'add_to_theme':
@@ -119,12 +123,8 @@ class FollowisticFrontend
         break;
 
       case 'after_content':
-        return $content . FollowisticWidget::get_script();
-        break;
-
-      // default option is 'after_content'
       default:
-        return $content . FollowisticWidget::get_script();
+        return $content . $script;
         break;
     }
   }
