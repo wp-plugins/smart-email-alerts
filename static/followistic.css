@@ -1,0 +1,250 @@
+body {
+  background-color: #f1f1f1;
+}
+
+.followistic-alert {
+  margin: 15px 0px;
+  height: 69px;
+  min-width: 1160px;
+}
+
+.followistic-alert .btn-primary {
+  background-color: #1d8dc2;
+  border-color: #0075a5;
+  border-radius: 3px;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 10px 35px;
+  line-height: 1.5em;
+  color: #FFF;
+}
+
+.followistic-alert .followistic-note {
+  width: 100%;
+  height: 67px;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  background-color: #38c0f0;
+
+  text-align: left;
+  padding: 6px;
+}
+
+.followistic-alert .followistic-note .btn-container {
+  float: left;
+  padding: 6px;
+  background-color: #FFF;
+  border-color: #FFF;
+  border-radius: 3px;
+  margin-right: 25px;
+}
+
+.followistic-alert .followistic-note .msg-container {
+  text-align: left;
+  margin-left: 40px;
+  height:54px;
+  font-family: "Open Sans", sans-serif;
+  color: #FFF;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5em;
+  padding: 18px 0px;
+}
+
+#followistic-admin {
+  margin: 0px;
+  padding: 20px 0px 20px 0px;
+  font-family: "Open Sans", sans-serif;
+  color: #454545;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+#followistic-admin p {
+  font-size: 14px;
+  margin: 0px;
+}
+
+#followistic-admin .spacer {
+  clear: both;
+  height: 20px;
+  width: auto;
+}
+
+#followistic-admin .btn-primary {
+  background-color: #2fa2cc;
+  border-width: 1px;
+  border-color: #0375a2;
+  border-radius: 3px;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 10px;
+  line-height: 1.5em;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#followistic-admin > header {
+  font-size: 24px;
+  color: #0d759c;
+  margin-bottom: 0px;
+  float: left;
+}
+
+#followistic-admin > header a {
+  font-weight: bold;
+  color: #0d759c;
+  border-style: none;
+}
+
+#followistic-admin > header a img {
+  border-style: none;
+}
+
+#followistic-admin > header a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #0d759c;
+}
+
+#followistic-admin > ul {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#followistic-admin > ul li {
+  list-style-type: none;
+}
+
+#followistic-admin > ul li.error {
+  color: #dc4d1a;
+}
+
+#followistic-admin > ul li.success {
+  color: #2fa2cc;
+}
+
+#followistic-admin section {
+  position: relative;
+  width: 800px;
+  border: 1px solid #FFF;
+  border-radius: 0px;
+  background-color: #FFF;
+
+  text-align: left;
+  padding: 22px;
+  margin-top: 20px;
+}
+
+#followistic-admin section > header {
+  font-weight: bold;
+}
+
+#followistic-admin section > a {
+  position: absolute;
+  top: 46px;
+  right: 22px;
+}
+
+#followistic-admin section > form {
+  margin: 0px 0px 0px 0px;
+}
+
+#followistic-admin section > form label {
+  font-size: 14px;
+}
+
+#followistic-admin section > form label:hover {
+  cursor: default;
+}
+
+#followistic-admin section > form input[type="text"] {
+  border: 1px solid #dddddd;
+  width: 350px;
+  height: 28px;
+  margin: 0px 80px;
+}
+
+#followistic-admin section > form select {
+  border: 1px solid #dddddd;
+  width: 350px;
+  height: 28px;
+  margin: 0px 20px;
+}
+
+#followistic-admin section > form p.info-add-to-theme {
+  margin: 20px 0px 0px 196px;
+  padding: 0px;
+}
+
+#followistic-admin section > p.info-layout-and-statistics {
+  margin: -25px 0px 0px 196px;
+  padding: 0px;
+}
+
+#followistic-admin section > p.info-register {
+  margin: 10px 0px 0px 0px;
+  padding: 0px;
+}
+
+#followistic-admin section > form input[type="submit"] {
+  background-color: #2fa2cc;
+  border-width: 1px;
+  border-color: #0375a2;
+  border-radius: 3px;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 10px;
+  line-height: 1.5em;
+  color: #FFF;
+}
+
+#followistic-admin section > form.register {
+  margin-top: 10px;
+}
+
+#followistic-admin section > form.register label {
+  font-weight: normal;
+}
+
+#followistic-admin section > form.register input[type="text"] {
+  margin: 0px 20px;
+}
+
+#followistic-admin section > form.register input[type="submit"] {
+  position: absolute;
+  top: 46px;
+  right: 19px;
+}
+
+#followistic-admin section > form.settings-margins {
+    margin-top:20px;
+}
+
+#followistic-admin section > form.settings-margins input {
+    width: 60px;
+}
+
+#followistic-admin section > form.settings-margins label {
+  font-weight: normal;
+  margin-left: 40px;
+}
+
+#followistic-admin section > form.settings-margins label[for="margins"] {
+  font-weight: bold;
+    margin-right: 89px;
+    margin-left:0px;
+}
+
+#followistic-admin section > form.settings-margins input[type="submit"] {
+    margin-left: 41px;
+}
